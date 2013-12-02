@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Assignment 2</title>
+    </head>
+    <body>
+        <ol id="fruits">
+            <li>Grape</li>
+            <li>Banana</li>
+            <li>Apple</li>
+            <li>Kiwi</li>
+            <li>Orange</li>
+            <li>Blueberry</li>
+            <li>Strawberry</li>
+            <li>Raspberry</li>
+            <li>Lemon</li>
+            <li>Peach</li>
+            <li>Melon</li>
+            <li>Pineapple</li>
+        </ol>
+        <script>
+            // Instructions / Rules:
+            /*
+            1. The HTML Content must NOT be edited. Only the script tag contents can be edited.
+
+            2. get all the values of li 'ol#fruits' element and store it in an array called fruits. You may store the fruits elementNode in the variable fruitsEl.
+            3. console.log the values of fruits variable.
+
+            4. Create a section tag with ordered list of fruits that DOES NOT end with "berry", you must use a function that you will create and call generateList(values, title).
+            5. Inside the newly created "section", you will add an h3 with the value of "Non-berries" passed as a second argument of the generateList function.
+            6. You may store the Non-berries in a variable nonBerries;
+
+            7. Uncomment the last generateList call (the one your names array). lols.
+
+            8. Recommended structure is available below.
+            */
+
+            var generateList = function (values, title) {
+				for (var i = 0; i < nonBerries.length; i++){
+					var li = document.createElement('li');
+					var text = document.createTextNode(nonBerries[i]);
+					ol.appendChild(li);
+					li.appendChild(text);
+				}
+				for (var j = 0; j < lols.length; j++){
+					var li = document.createElement('li');
+					var text = document.createTextNode(lols[j]);
+					article.appendChild(ul);
+					ul.style.listStyleType = "decimal";
+					ul.appendChild(li);
+					li.appendChild(text);
+				}
+            };
+            var fruitsEl = ['Grape', 'Banana', 'Apple', 'Kiwi', 'Orange', 'Blueberry', 'Strawberry', 'Raspberry', 'Lemon', 'Peach', 'Melon', 'Pineapple'],
+                fruits = fruitsEl,
+				lols = ['April', 'Exi', 'Mikko', 'Darren', 'Hector'],
+                nonBerries =['Grape', 'Banana', 'Apple', 'Kiwi', 'Orange','Lemon', 'Peach', 'Melon', 'Pineapple'];
+				
+            console.log(fruits);
+
+            var doc = document;
+            var body = doc.body;
+            var section = doc.createElement('section');
+            var h3 = doc.createElement('h3');
+			var h4 = doc.createElement('h4');
+			var ol = doc.createElement('ol');
+			var ul = doc.createElement('ul');
+			var article = doc.createElement('article');
+
+            //section
+            body.appendChild(section);
+            section.appendChild(h3)
+            h3.appendChild(doc.createTextNode('Non-berries'));
+			section.appendChild(ol);
+			//article
+			body.appendChild(article);
+			article.appendChild(h4);
+			h4.appendChild(document.createTextNode('Lols'));
+            //var re = //;
+            // for ...
+            // }
+            
+            //generateList(nonBerries, 'Non-berries');
+
+            generateList(['April', 'Exi', 'Mikko', 'Darren', 'Hector'], 'Lols');
+        </script>
+    </body>
+</html>
