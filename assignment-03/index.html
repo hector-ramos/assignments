@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Assignment 3</title>
+</head>
+<body>
+    <script>
+            // Instructions
+            // 1. See preview png, assignment-3-preview.png
+            // 2. Only the Script tag contents should be edited.
+            // 3. You must not edit the variable MyWebsite.
+            // 4. You must use "for" loop to iterate the pages > titles and generate the nav element and its content
+            // 5. You will create a toSlug function to generate the hrefs of the anchors, based on the title.
+            // 6. Add an Event Listener to the Anchors and when clicked, the title, h1 and the url should be updated.
+            // 7. Lols
+
+            var MyWebsite = {
+                pages: [
+                    {
+                        title: 'Home'
+                    },
+                    
+                    {
+                        title: 'About Us'
+                    },
+                    
+                    {
+
+                       title: 'Contact Us'
+                    }
+                ]
+            };
+
+            //to slug the title/s
+            var toSlug = function(str){
+                var slug;
+                slug = str.toLowerCase().replace(/\s/g, '-');
+
+                return slug;
+            };
+
+            //console.log(toSlug('Contact Us'));
+            
+            //declare all the Element
+            var nav  = document.createElement('nav'),
+                body = document.body;
+                ul   = document.createElement('ul'),
+                h1   = document.createElement('h1');
+
+
+            for(var i = 0; i < MyWebsite.pages.length; i++ ){
+                var li = document.createElement('li');
+                var a  = document.createElement('a');
+                a.href ='#' + toSlug(MyWebsite.pages[i].title);
+                a.textContent = MyWebsite.pages[i].title;
+                li.appendChild(a);
+                ul.appendChild(li);
+
+                a.addEventListener('click', function(evt){
+                    var target = evt.target;
+                    //console.log(target.textContent);
+                    h1.textContent = target.textContent;
+                    //evt.preventDefault();
+                }, false);
+            }
+
+            body.insertBefore(nav, body.firstChild);
+            body.insertBefore(h1, body.lastChild);
+
+            h1.textContent = MyWebsite.pages[0].title;
+
+            nav.appendChild(ul);
+            //body.appendChild(nav);
+            //body.appendChild(h1);
+        </script>
+    </body>
+</html>
