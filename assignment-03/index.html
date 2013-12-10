@@ -40,9 +40,9 @@
             var h1 = document.createElement('h1');
             document.body.insertBefore(nav, document.body.firstChild);
             document.body.insertBefore(h1, document.body.lastChild);
-            //document.body.appendChild(nav);
-            //document.body.appendChild(h1);
-            h1.textContent = MyWebsite.pages[0].title;
+            h1.id = 'main-title';
+            h1Id = document.getElementById('main-title')
+            h1Id.textContent = MyWebsite.pages[0].title;
             nav.appendChild(ul);
 
             for(var i = 0; i < MyWebsite.pages.length; i++){
@@ -55,7 +55,7 @@
 
                 a.addEventListener('click', function(evnt){
                     var target = evnt.target;
-                    h1.textContent = target.textContent;
+                    h1Id.textContent = target.textContent;
                     document.title = target.textContent;
                 });
             }
