@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Assignment 2</title>
+    </head>
+    <body>
+        <ol id="fruits">
+            <li>Grape</li>
+            <li>Banana</li>
+            <li>Apple</li>
+            <li>Kiwi</li>
+            <li>Orange</li>
+            <li>Blueberry</li>
+            <li>Strawberry</li>
+            <li>Raspberry</li>
+            <li>Lemon</li>
+            <li>Peach</li>
+            <li>Melon</li>
+            <li>Pineapple</li>
+        </ol>
+        <script>
+            // Instructions / Rules:
+            /*
+            1. The HTML Content must NOT be edited. Only the script tag contents can be edited.
+
+            2. get all the values of li 'ol#fruits' element and store it in an array called fruits. You may store the fruits elementNode in the variable fruitsEl.
+            3. console.log the values of fruits variable.
+
+            4. Create a section tag with ordered list of fruits that DOES NOT end with "berry", you must use a function that you will create and call generateList(values, title).
+            5. Inside the newly created "section", you will add an h3 with the value of "Non-berries" passed as a second argument of the generateList function.
+            6. You may store the Non-berries in a variable nonBerries;
+
+            7. Uncomment the last generateList call (the one your names array). lols.
+
+            8. Recommended structure is available below.
+            */
+
+            var generateList = function (values, title) {
+                var d  = document,
+                    b  = d.body,
+                    s  = null,
+                    ol = null,
+                    li = null,
+                    h3 = null;
+
+                s = d.createElement('section');
+                b.appendChild(s);
+
+                h3 = d.createElement('h3');
+                h3.appendChild(d.createTextNode(title));
+                s.appendChild(h3);
+
+                ol = d.createElement('ol');
+                for (var i = 0; i < values.length; i++) {
+                    li = d.createElement('li');
+                    li.appendChild(d.createTextNode(values[i]));
+                    ol.appendChild(li);
+                }
+                s.appendChild(ol);
+
+            };
+
+            var fruitsEl   = document.getElementById('fruits'),
+                fruits     = [],
+                nonBerries = [];
+
+            for (var i = 0; i < fruitsEl.children.length; i++) {
+                fruits.push(fruitsEl.children[i].innerHTML);
+            }
+
+            console.log(fruits);
+
+            var re = /berry$/;
+            for (var i = 0; i < fruits.length; i++) {
+                if (!re.test(fruits[i])) {
+                    nonBerries.push(fruits[i]);
+                }
+            }
+            
+            generateList(nonBerries, 'Non-berries');
+
+            generateList(['April', 'Exi', 'Mikko', 'Darren', 'Hector'], 'Lols');
+        </script>
+    </body>
+</html>
